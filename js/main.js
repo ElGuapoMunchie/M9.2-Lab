@@ -179,7 +179,7 @@ while (balls.length < 25) {
 
   balls.push(ball);
   count++;
-  p.textContent = 'Ball Count: ' + count
+  p.textContent = 'Ball Count: ' + count;
 }
 
 // Create the evil circle somewhere on the map

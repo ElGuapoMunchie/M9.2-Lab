@@ -6,6 +6,11 @@ const ctx = canvas.getContext("2d");
 const width = (canvas.width = window.innerWidth);
 const height = (canvas.height = window.innerHeight);
 
+// variables for score counter
+
+const p = document.querySelector("p");  // stores paragraph
+let count = 0;                          // score
+
 // function to generate random number
 
 function random(min, max) {
@@ -34,7 +39,7 @@ class EvilCircle extends Shape {
 
     // Call the shape constructor, passing in args
     super(x, y, 20, 20);
-    this.color = white;
+    this.color = "white";
     this.size = 10;
 
     // Movement controls
@@ -91,7 +96,8 @@ class EvilCircle extends Shape {
 
         if (distance < this.size + ball.size) {
           ball.exists = false;
-     
+          count--;
+          p.textContent = 'Ball Count: ' + count;
         }
       }
     }
@@ -172,6 +178,8 @@ while (balls.length < 25) {
   );
 
   balls.push(ball);
+  count++;
+  p.textContent = 'Ball Count: ' + count
 }
 
 // Create the evil circle somewhere on the map

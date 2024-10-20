@@ -65,11 +65,36 @@ class EvilCircle extends Shape {
   }
 
   checkBounds() {
-    
+    if (this.x + this.size >= width) {
+      this.velX = -this.size;
+    }
+
+    if (this.x - this.size <= 0) {
+      this.velX = this.size;
+    }
+
+    if (this.y + this.size >= height) {
+      this.velY = -this.size;
+    }
+
+    if (this.y - this.size <= 0) {
+      this.velY = this.size;
+    }
   }
 
   collisionDetect() {
+    for (const ball of balls) {
+      if (ball.exists == true) {
+        const dx = this.x - ball.x;
+        const dy = this.y - ball.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
 
+        if (distance < this.size + ball.size) {
+          ball.exists = false;
+     
+        }
+      }
+    }
   }
 }
 

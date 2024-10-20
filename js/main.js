@@ -28,6 +28,35 @@ class Shape {
   }
 }
 
+// EvilCircle class
+class EvilCircle extends Shape{
+  constructor(x, y) {
+
+    // Call the shape constructor, passing in args
+    super(x, y, 20, 20);
+    this.color = white;
+    this.size = 10;
+
+    // Movement controls
+    window.addEventListener("keydown", (e) => {
+      switch (e.key) {
+        case "a":
+          this.x -= this.velX;
+          break;
+        case "d":
+          this.x += this.velX;
+          break;
+        case "w":
+          this.y -= this.velY;
+          break;
+        case "s":
+          this.y += this.velY;
+          break;
+      }
+    });
+  }
+}
+
 // Ball class
 class Ball extends Shape{
   exists; // TODO: Watch that this doesn't cause errors

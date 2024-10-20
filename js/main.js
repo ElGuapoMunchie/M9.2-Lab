@@ -29,7 +29,7 @@ class Shape {
 }
 
 // EvilCircle class
-class EvilCircle extends Shape{
+class EvilCircle extends Shape {
   constructor(x, y) {
 
     // Call the shape constructor, passing in args
@@ -55,10 +55,26 @@ class EvilCircle extends Shape{
       }
     });
   }
+
+  draw() {
+    ctx.beginPath();
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = this.color;
+    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.stroke();
+  }
+
+  checkBounds() {
+    
+  }
+
+  collisionDetect() {
+
+  }
 }
 
 // Ball class
-class Ball extends Shape{
+class Ball extends Shape {
   exists; // TODO: Watch that this doesn't cause errors
 
   constructor(x, y, velX, velY, color, size) {
